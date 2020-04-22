@@ -3,25 +3,12 @@ package configs
 import (
 	"fmt"
 	"testing"
+
+	"github.com/JiangFei/go-micro-study/models"
 )
 
-type DataConfig struct {
-	DataSourceConfList []DataSourceConf `yaml:"datasources,omitempty"`
-	DBAccount          DBAccount        `yaml:"dbData,omitempty"`
-}
-
-type DBAccount struct {
-	UserName string `yaml:"userName,omitempty"`
-	Password string `yaml:"password,omitempty"`
-}
-type DataSourceConf struct {
-	DataSourceLabel string `yaml:"dataSourceLabel,omitempty"`
-	DBType          string `yaml:"dbType,omitempty"`
-	DBUrl           string `yaml:"dbUrl,omitempty"`
-}
-
 func TestLoadYml(t *testing.T) {
-	var configModel *DataConfig
+	var configModel *models.DataConfig
 	configModel = new(DataConfig)
 	err := LoadYmlConfig("mysql.yml", configModel)
 	if err != nil {
@@ -31,23 +18,8 @@ func TestLoadYml(t *testing.T) {
 	}
 }
 
-type DataConfigJSON struct {
-	DataSourceConfList []DataSourceConfJSON `json:"datasources,omitempty"`
-	DBAccount          DBAccountJSON        `json:"dbData,omitempty"`
-}
-
-type DBAccountJSON struct {
-	UserName string `json:"userName,omitempty"`
-	Password string `json:"password,omitempty"`
-}
-type DataSourceConfJSON struct {
-	DataSourceLabel string `json:"dataSourceLabel,omitempty"`
-	DBType          string `json:"dbType,omitempty"`
-	DBUrl           string `json:"dbUrl,omitempty"`
-}
-
 func TestLoadJson(t *testing.T) {
-	var configModel *DataConfigJSON
+	var configModel *models.DataConfigJSON
 	configModel = new(DataConfigJSON)
 	err := LoadJsonConfig("mysql.json", configModel)
 	if err != nil {
