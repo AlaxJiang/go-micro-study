@@ -4,10 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/JiangFei/go-micro-study/models"
+	"./go-micro-study/models"
 )
 
 func TestLoadYml(t *testing.T) {
+
 	var configModel *models.DataConfig
 	configModel = new(DataConfig)
 	err := LoadYmlConfig("mysql.yml", configModel)
