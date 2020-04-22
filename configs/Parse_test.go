@@ -16,7 +16,8 @@ type DBAccount struct {
 }
 type DataSourceConf struct {
 	DataSourceLabel string `yaml:"dataSourceLabel,omitempty"`
-	MysqlUrl        string `yaml:"mysqlUrl,omitempty"`
+	DBType          string `yaml:"dbType,omitempty"`
+	DBUrl           string `yaml:"dbUrl,omitempty"`
 }
 
 func TestLoadYml(t *testing.T) {
@@ -41,7 +42,8 @@ type DBAccountJSON struct {
 }
 type DataSourceConfJSON struct {
 	DataSourceLabel string `json:"dataSourceLabel,omitempty"`
-	MysqlUrl        string `json:"mysqlUrl,omitempty"`
+	DBType          string `json:"dbType,omitempty"`
+	DBUrl           string `json:"dbUrl,omitempty"`
 }
 
 func TestLoadJson(t *testing.T) {
